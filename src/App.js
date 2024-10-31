@@ -8,9 +8,13 @@ function App() {
   const dispatch = useDispatch()
   const users = useSelector(state => state)
 
+  const getUsersHandler = () => {
+    dispatch(fetchCustomers())
+  }
+
   return (
     <div className = 'app'>
-      <button className='getUsersBtn' onClick={() => fetchCustomers()}>Получить пользователей</button>
+      <button className='getUsersBtn' onClick={getUsersHandler}>Получить пользователей</button>
       {users.map((el,i) =>{
         return(<h1 key={i}>{el.name}</h1>)
       })}
